@@ -14,6 +14,42 @@ const listOfNumbers = numberString.split(",").map(item => Number(item.trim()));
 
 // 1,23,58, 25,96 , 5 ,78,5 (sample list of numbers I copy paste in console as user input to check if app is working)
 
-const mean = listOfNumbers.reduce((sum, currentNumber) => sum += currentNumber, 0) / listOfNumbers.length ;
+console.log(`Mean: ${calculateMean(listOfNumbers)}`);
 
-console.log(`Mean: ${mean}`);
+console.log(`Median: ${calculateMedian(listOfNumbers)}`);
+
+// Functions to calculate Statistics
+
+function calculateMean (numbers) {
+
+    const mean = numbers.reduce((sum, currentNumber) => sum += currentNumber, 0) / numbers.length;
+    
+    return mean;
+
+};
+
+function calculateMedian (numbers) {
+
+    const sortedNumbers = numbers.sort((currentNumber, nextNumber)=> currentNumber-nextNumber);
+    
+    if (sortedNumbers.length % 2 === 0) {
+
+        const middleIndex1 = sortedNumbers.length / 2;
+
+        const middleIndex2 = middleIndex1 + 1;
+        
+        const median = (sortedNumbers[middleIndex1] + sortedNumbers[middleIndex2]) / 2;
+
+        return median;
+
+    }
+
+    else {
+
+        const median = sortedNumbers[Math.floor(sortedNumbers.length / 2)];
+
+        return median;
+
+    }
+
+};
