@@ -18,6 +18,8 @@ console.log(`Mean: ${calculateMean(listOfNumbers)}`);
 
 console.log(`Median: ${calculateMedian(listOfNumbers)}`);
 
+console.log(`Mode: ${calculateMode(listOfNumbers)}`);
+
 // Functions to calculate Statistics
 
 function calculateMean (numbers) {
@@ -53,3 +55,26 @@ function calculateMedian (numbers) {
     }
 
 };
+
+function calculateMode (numbers) {
+
+    // logic is incorrect !
+    // const numberWithCount = numbers.map( number => {
+        
+    //     const numIndex = numbers.indexOf(number);
+
+    //     if (numbers.includes(number)) {
+    //         numberWithCount[numIndex].count++; 
+    //     }
+    //     else {
+    //         return {number: number, count: 1}
+    //     }
+    // })
+
+    const modeFrequency = numberWithCount.reduce((maxCount, currentNumber) => maxCount > currentNumber.count ? maxCount : currentNumber.count, 1);
+
+    const mode = numberWithCount.find(number => number.count === modeFrequency)
+
+    return mode;
+
+}
