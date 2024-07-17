@@ -36,9 +36,9 @@ function calculateMedian (numbers) {
     
     if (sortedNumbers.length % 2 === 0) {
 
-        const middleIndex1 = sortedNumbers.length / 2;
+        const middleIndex2 = sortedNumbers.length / 2;
 
-        const middleIndex2 = middleIndex1 + 1;
+        const middleIndex1 = middleIndex1 - 1;
         
         const median = (sortedNumbers[middleIndex1] + sortedNumbers[middleIndex2]) / 2;
 
@@ -57,6 +57,35 @@ function calculateMedian (numbers) {
 };
 
 function calculateMode (numbers) {
+    
+    // approach : 
+
+        //create a new array free from duplicates
+
+        const duplicateFreeNumbers = [... new Set( numbers )];
+        
+        //from this new array , create a array of obj with num and count=0 as props
+
+        const numbersWithCount = duplicateFreeNumbers.map( number => {
+
+            return {number: number, count: 0};
+        
+        });
+
+        console.log(numbers);
+        console.log(duplicateFreeNumbers);
+        console.log(numbersWithCount);
+        // run a loop on original array and update count each time in array of obj
+
+        //
+        
+        
+
+
+
+
+
+
 
     // logic is incorrect !
     // const numberWithCount = numbers.map( number => {
@@ -71,10 +100,10 @@ function calculateMode (numbers) {
     //     }
     // })
 
-    const modeFrequency = numberWithCount.reduce((maxCount, currentNumber) => maxCount > currentNumber.count ? maxCount : currentNumber.count, 1);
+    // const modeFrequency = numbersWithCount.reduce((maxCount, currentNumber) => maxCount > currentNumber.count ? maxCount : currentNumber.count, 1);
 
-    const mode = numberWithCount.find(number => number.count === modeFrequency)
+    // const mode = numbersWithCount.find(number => number.count === modeFrequency)
 
-    return mode;
+    // return mode;
 
 }
