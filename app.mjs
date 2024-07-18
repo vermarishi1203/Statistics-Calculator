@@ -20,6 +20,8 @@ console.log(`Median: ${calculateMedian(listOfNumbers)}`);
 
 console.log(`Mode: ${calculateMode(listOfNumbers)}`);
 
+console.log(`Range: ${calculateRange(listOfNumbers)}`);
+
 // Functions to calculate Statistics
 
 function calculateMean (numbers) {
@@ -66,8 +68,16 @@ function calculateMode (numbers) {
 
     const modeFrequency = numbersWithCount.reduce((maxCount, currentNumber) => maxCount > currentNumber.count ? maxCount : currentNumber.count, 1);
 
-    const mode = modeFrequency ===1 ? null : numbersWithCount.find(number => number.count === modeFrequency).number;
+    const mode = modeFrequency === 1 ? null : numbersWithCount.find(number => number.count === modeFrequency).number;
 
     return mode;
+
+};
+
+function calculateRange (numbers) {
+    
+    const range = numbers[numbers.length-1] - numbers[0];
+
+    return range;
 
 };
