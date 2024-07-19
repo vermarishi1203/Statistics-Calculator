@@ -22,6 +22,10 @@ console.log(`Mode: ${calculateMode(listOfNumbers)}`);
 
 console.log(`Range: ${calculateRange(listOfNumbers)}`);
 
+console.log(`Variance: ${calculateVariance(listOfNumbers)}`);
+
+
+
 // Functions to calculate Statistics
 
 function calculateMean (numbers) {
@@ -81,3 +85,18 @@ function calculateRange (numbers) {
     return range;
 
 };
+
+function calculateVariance (numbers) {
+    
+    const mean = calculateMean(numbers);
+    
+    const squaredDeviations = numbers.map( deviation => (deviation - mean)*(deviation - mean));
+
+    const variance = calculateMean(squaredDeviations);
+
+    return variance;
+
+};
+
+
+
