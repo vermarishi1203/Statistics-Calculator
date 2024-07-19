@@ -4,9 +4,7 @@ import promptSync from "prompt-sync";
 
 const prompt = promptSync({sigint: true});
 
-console.log("\n");
-
-console.log("Enter a list of comma-seperated numbers");
+console.log("\nEnter a list of comma-seperated numbers");
 
 const numberString = prompt("Numbers: ");
 
@@ -14,17 +12,31 @@ const listOfNumbers = numberString.split(",").map(item => Number(item.trim()));
 
 // 1,23,58, 25,96 , 5 ,78,5 (sample list of numbers I copy paste in console as user input to check if app is working)
 
-console.log(`Mean: ${calculateMean(listOfNumbers)}`);
+// Rendering Statistics
 
-console.log(`Median: ${calculateMedian(listOfNumbers)}`);
+console.log(`\nMean: ${calculateMean(listOfNumbers)}`);
 
-console.log(`Mode: ${calculateMode(listOfNumbers)}`);
+console.log("The mean of a list of numbers is the average, calculated by taking the sum of all numbers and dividing that by the count of numbers.");
 
-console.log(`Range: ${calculateRange(listOfNumbers)}`);
+console.log(`\nMedian: ${calculateMedian(listOfNumbers)}`);
 
-console.log(`Variance: ${calculateVariance(listOfNumbers)}`);
+console.log("The median of a list of numbers is the number that appears in the middle of the list, when sorted from least to greatest.");
 
-console.log(`Standard Deviation: ${calculateStandardDeviation(listOfNumbers)}`);
+console.log(`\nMode: ${calculateMode(listOfNumbers)}`);
+
+console.log("The mode of a list of numbers is the number that appears most often in the list.");
+
+console.log(`\nRange: ${calculateRange(listOfNumbers)}`);
+
+console.log("The range of a list of numbers is the difference between the largest and smallest numbers in the list.");
+
+console.log(`\nVariance: ${calculateVariance(listOfNumbers)}`);
+
+console.log("The variance of a list of numbers measures how far the values are from the mean, on average.");
+
+console.log(`\nStandard Deviation: ${calculateStandardDeviation(listOfNumbers)}`);
+
+console.log("The standard deviation of a list of numbers is the square root of the variance.");
 
 // Functions to calculate Statistics
 
