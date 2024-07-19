@@ -2,39 +2,39 @@
 
 import promptSync from "prompt-sync";
 
+import chalk from "chalk";
+
 const prompt = promptSync({sigint: true});
 
-console.log("\nEnter a list of comma-seperated numbers");
+console.log(chalk.magentaBright("\nEnter a list of comma-seperated numbers"));
 
-const numberString = prompt("Numbers: ");
+const numberString = prompt(chalk.greenBright("Numbers: "));
 
 const listOfNumbers = numberString.split(",").map(item => Number(item.trim()));
 
-// 1,23,58, 25,96 , 5 ,78,5 (sample list of numbers I copy paste in console as user input to check if app is working)
-
 // Rendering Statistics
 
-console.log(`\nMean: ${calculateMean(listOfNumbers)}`);
+console.log(chalk.bold.cyanBright(`\nMean: ${calculateMean(listOfNumbers)}`));
 
 console.log("The mean of a list of numbers is the average, calculated by taking the sum of all numbers and dividing that by the count of numbers.");
 
-console.log(`\nMedian: ${calculateMedian(listOfNumbers)}`);
+console.log(chalk.bold.cyanBright(`\nMedian: ${calculateMedian(listOfNumbers)}`));
 
 console.log("The median of a list of numbers is the number that appears in the middle of the list, when sorted from least to greatest.");
 
-console.log(`\nMode: ${calculateMode(listOfNumbers)}`);
+console.log(chalk.bold.cyanBright(`\nMode: ${calculateMode(listOfNumbers)}`));
 
 console.log("The mode of a list of numbers is the number that appears most often in the list.");
 
-console.log(`\nRange: ${calculateRange(listOfNumbers)}`);
+console.log(chalk.bold.cyanBright(`\nRange: ${calculateRange(listOfNumbers)}`));
 
 console.log("The range of a list of numbers is the difference between the largest and smallest numbers in the list.");
 
-console.log(`\nVariance: ${calculateVariance(listOfNumbers)}`);
+console.log(chalk.bold.cyanBright(`\nVariance: ${calculateVariance(listOfNumbers)}`));
 
 console.log("The variance of a list of numbers measures how far the values are from the mean, on average.");
 
-console.log(`\nStandard Deviation: ${calculateStandardDeviation(listOfNumbers)}`);
+console.log(chalk.bold.cyanBright(`\nStandard Deviation: ${calculateStandardDeviation(listOfNumbers)}`));
 
 console.log("The standard deviation of a list of numbers is the square root of the variance.");
 
