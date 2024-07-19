@@ -24,7 +24,7 @@ console.log(`Range: ${calculateRange(listOfNumbers)}`);
 
 console.log(`Variance: ${calculateVariance(listOfNumbers)}`);
 
-
+console.log(`Standard Deviation: ${calculateStandardDeviation(listOfNumbers)}`);
 
 // Functions to calculate Statistics
 
@@ -98,5 +98,13 @@ function calculateVariance (numbers) {
 
 };
 
+function calculateStandardDeviation (numbers) {
+    
+    const variance = calculateVariance(numbers);
 
+    const standardDeviation = Math.sqrt(variance);
+
+    return standardDeviation;
+
+};
 
