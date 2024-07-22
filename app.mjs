@@ -50,7 +50,7 @@ function calculateMean (numbers) {
 
 function calculateMedian (numbers) {
 
-    const sortedNumbers = numbers.sort((currentNumber, nextNumber)=> currentNumber-nextNumber);
+    const sortedNumbers = numbers.slice().sort((currentNumber, nextNumber)=> currentNumber-nextNumber);
     
     if (sortedNumbers.length % 2 === 0) {
 
@@ -92,7 +92,7 @@ function calculateMode (numbers) {
 
 function calculateRange (numbers) {
     
-    const range = numbers[numbers.length-1] - numbers[0];
+    const range = Math.max(...numbers) - Math.min(...numbers);
 
     return range;
 
@@ -102,7 +102,7 @@ function calculateVariance (numbers) {
     
     const mean = calculateMean(numbers);
     
-    const squaredDeviations = numbers.map( deviation => (deviation - mean)*(deviation - mean));
+    const squaredDeviations = numbers.map( deviation => (deviation - mean) ** 2);
 
     const variance = calculateMean(squaredDeviations);
 
