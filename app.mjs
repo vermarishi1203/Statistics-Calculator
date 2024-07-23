@@ -76,18 +76,20 @@ function calculateMedian (numbers) {
 
 function calculateMode (numbers) {
 
-    const duplicateFreeNumbers = [... new Set( numbers )];
-        
-    const numbersWithCount = duplicateFreeNumbers.map( number => ({number: number, count: 0}));
+    const numbersWithCount = {};
 
-    numbers.forEach(number => numbersWithCount.forEach( element => { if (element.number === number) element.count++ }));
+    numbers.forEach(number => numbersWithCount[number] = ( numbersWithCount[number] || 0) +1 );
 
-    const modeFrequency = numbersWithCount.reduce((maxCount, currentNumber) => maxCount > currentNumber.count ? maxCount : currentNumber.count, 1);
+    if (new Set(Object.values(numbersWithCount)).size === 1) return null;
 
-    const mode = modeFrequency === 1 ? null : numbersWithCount.find(number => number.count === modeFrequency).number;
+    const modeFrequency = Math.max(...Object.values(numbersWithCount));
 
-    return mode;
+    const arrayOfModes = Object.keys(numbersWithCount).filter(number => numbersWithCount[number] === modeFrequency);
 
+    const stringOfModes = arrayOfModes.join(", ");
+
+    return stringOfModes;
+ 
 };
 
 function calculateRange (numbers) {
